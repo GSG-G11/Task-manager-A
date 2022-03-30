@@ -1,7 +1,13 @@
-import React from "react";
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faTrashCan,
+  faCircleCheck,
+  faPenToSquare,
+} from '@fortawesome/free-solid-svg-icons';
 
 function TaskCard({ task, handlers }) {
-  const {  handleChecked, handleDelete, handleUpdate } = handlers;
+  const { handleChecked, handleDelete, handleUpdate } = handlers;
   const { title, description, date, checked, priority } = task;
   return (
     <div className="card">
@@ -16,7 +22,7 @@ function TaskCard({ task, handlers }) {
         </div>
         <p className="card-description"> {description} </p>
         <div className="info">
-          {priority === "important" ? (
+          {priority === 'important' ? (
             <span className="important"> IMPORTANT </span>
           ) : (
             <span className="not-important">Not IMPORTANT</span>
@@ -24,9 +30,15 @@ function TaskCard({ task, handlers }) {
           <p className="date">created at {date}</p>
         </div>
         <div className="actions">
-            <button className="check"  onClick={handleChecked} >de</button>
-            <button className="update" onClick={handleUpdate} >do</button>
-            <button className="delete" onClick={handleDelete} >ap</button>
+          <button className="check" onClick={handleChecked}>
+            <FontAwesomeIcon icon={faCircleCheck} />
+          </button>
+          <button className="update" onClick={handleUpdate}>
+            <FontAwesomeIcon icon={faPenToSquare} />
+          </button>
+          <button className="delete" onClick={handleDelete}>
+            <FontAwesomeIcon icon={faTrashCan} />
+          </button>
         </div>
       </div>
     </div>
