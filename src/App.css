@@ -1,0 +1,81 @@
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 90%;
+  margin: 10px auto;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-container {
+  padding: 10px 33px;
+}
+.card-title {
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+}
+.card-description {
+  font-size: 18px;
+  margin-top: 0;
+  font-style: italic;
+
+}
+.done {
+  color: green;
+  font-size: 1.5rem;
+}
+.not-done {
+  color: red;
+  font-size: 1.5rem;
+}
+.important {
+  color: green;
+}
+.not-important {
+  color: red;
+}
+.title {
+  margin-left: 10px;
+  color: rgb(112, 19, 19);
+}
+.info{
+    display: flex;
+    align-items: center;
+}
+.date{
+    margin-left: 10px;
+}
+.actions{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+button{
+    margin: 3px;
+    border: none;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+}
+.button:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+.check{
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+.update{
+    background-color: #433ca8; /* Green */
+    color: white;
+}
+.delete{
+    background-color: #ff0000; /* Green */
+    color: white;
+}
