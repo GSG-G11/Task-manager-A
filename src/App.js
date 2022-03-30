@@ -58,7 +58,7 @@ class App extends React.Component {
     this.setState((prevState) => {
       return {
         tasks: prevState.tasks.map((ele) => {
-          if (ele.id === id) {
+          if (ele.id === +id) {
             return task;
           } else {
             return ele;
@@ -72,7 +72,7 @@ class App extends React.Component {
     console.log(id);
   };
   render() {
-    console.log(this.state.tasks);
+    console.log(this.state);
     return (
       <div className="App">
         <AddTasksForm onSubmit={this.addTaskToArray} />
