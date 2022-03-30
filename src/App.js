@@ -1,7 +1,9 @@
 import React from 'react';
 import './App.css';
 import AddTasksForm from './components/AddTaskForm';
+import Navbar from './components/nav/Navbar';
 import TaskList from './components/TaskList';
+
 class App extends React.Component {
   state = {
     id: 1,
@@ -16,6 +18,7 @@ class App extends React.Component {
         priority: 'important',
       },
     ],
+    added: false,
   };
 
   addTaskToArray = (e) => {
@@ -32,6 +35,7 @@ class App extends React.Component {
       return {
         id: prevState.id + 1,
         tasks: [...prevState.tasks, newTask],
+        added: false,
       };
     });
   };
@@ -70,18 +74,34 @@ class App extends React.Component {
 
   handleChecked = ({ target: { id } }) => {
     this.setState((prevState) => {
-      prevState.tasks[+id].checked = true;
-      return prevState;
+      return {
+        tasks: prevState.tasks.map((ele) => {
+          if (ele.id === +id) {
+            return { ...ele , checked: !ele.checked};
+          } else {
+            return ele
+          }
+        }),
+      };
+    });
+  };
+
+  handleAddBtn = () => {
+    this.setState((prevState) => {
+      return { added: !prevState.added };
     });
   };
   render() {
     console.log(this.state);
     return (
-      <div className='App'>
-        <div className='form-container'>
-          <AddTasksForm onSubmit={this.addTaskToArray} />
-          <div className='time-card'></div>
-        </div>
+      <div className="App">
+        <Navbar toggleAdd={this.handleAddBtn} added={this.state.added} />
+        {this.state.added && (
+          <div className="form-container">
+            <AddTasksForm onSubmit={this.addTaskToArray} />
+            {/* <div className="time-card"></div> */}
+          </div>
+        )}
         <TaskList
           data={this.state.tasks}
           allActions={{

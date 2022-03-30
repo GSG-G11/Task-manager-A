@@ -18,7 +18,6 @@ class TaskCard extends React.Component {
   };
 
   render() {
-    console.log(this.state);
     const { handlers, task } = this.props;
     const { handleChecked, handleDelete, handleUpdate } = handlers;
     const { id, title, description, time, checked, priority } = task;
