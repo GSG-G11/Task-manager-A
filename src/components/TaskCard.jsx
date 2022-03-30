@@ -24,10 +24,11 @@ class TaskCard extends React.Component {
     return (
       <div className="card">
         <div className="card-container">
-          <div className="card-title">
-            {this.state.isEdit ? (
-              <EditTask id={id} onSubmit={handleUpdate} />
-            ) : null}
+          {this.state.isEdit ? (
+            <EditTask title={title} description={description} time={time} id={id} onSubmit={handleUpdate} />
+          ) : 
+          <>
+            <div className="card-title">
             {checked ? (
               <span className="done"> &#x2714; </span>
             ) : (
@@ -42,8 +43,10 @@ class TaskCard extends React.Component {
             ) : (
               <span className="not-important">Not IMPORTANT</span>
             )}
-            <p className="date">created at {time}</p>
+            <p className="date">created at {new Date(time).toLocaleString()}</p>
           </div>
+          </>}
+        
           <div className="actions">
             <button id={id} className="check" onClick={handleChecked}>
               <FontAwesomeIcon icon={faCircleCheck} />
