@@ -8,6 +8,7 @@ const AddTasksForm = ({
 }) => {
   return (
     <>
+      <h2> Add To Do </h2>
       <label>Title : </label>
       <input
         value={title}

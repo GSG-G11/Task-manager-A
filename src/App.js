@@ -52,9 +52,14 @@ class App extends React.Component {
     // const { title, description, time } = this.state;
     return (
       <div className="App">
-        <form onSubmit={this.addTaskToArray}>
-          <AddTasksForm />
-        </form>
+        <div></div>
+        <div className="form-container">
+          <form onSubmit={this.addTaskToArray}>
+            <AddTasksForm />
+          </form>
+          <div className="time-card"></div>
+        </div>
+    
         <TaskList
           data={this.state.tasks}
           allActions={{
