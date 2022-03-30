@@ -1,13 +1,50 @@
-import React from 'react';
-import './App.css';
-import AddTasksForm from './components/AddTaskForm';
+import React from "react";
+import "./App.css";
+import AddTasksForm from "./components/AddTaskForm";
+import TaskList from "./components/TaskList";
 class App extends React.Component {
   state = {
-    title: '',
-    description: '',
-    time: '',
-    priority: '',
-    tasks: [],
+    title: "",
+    description: "",
+    time: "",
+    priority: "",
+    tasks: [
+      {
+        title: "Playing Time",
+        description: "i go to play my favorites game this time go a head to play",
+        date: "12/2",
+        checked: true,
+        priority: "important",
+      },
+      {
+        title: "Playing Time",
+        description: "i go to play my favorites game this time go a head to play",
+        date: "12/2",
+        checked: true,
+        priority: "important",
+      },
+      {
+        title: "Playing Time",
+        description: "i go to play my favorites game this time go a head to play",
+        date: "12/2",
+        checked: true,
+        priority: "important",
+      },
+      {
+        title: "Playing Time",
+        description: "i go to play my favorites game this time go a head to play",
+        date: "12/2",
+        checked: true,
+        priority: "important",
+      },
+      {
+        title: "Playing Time",
+        description: "i go to play my favorites game this time go a head to play",
+        date: "12/2",
+        checked: true,
+        priority: "important",
+      },
+    ],
   };
 
   handleInputChange = ({ target: { value, name } }) => {
@@ -21,10 +58,10 @@ class App extends React.Component {
     this.setState((prevState) => {
       return {
         tasks: [...prevState.tasks, newTask],
-        title: '',
-        description: '',
-        time: '',
-        priority: '',
+        title: "",
+        description: "",
+        time: "",
+        priority: "",
       };
     });
   };
@@ -41,6 +78,14 @@ class App extends React.Component {
             time={time}
           />
         </form>
+        <TaskList
+          data={this.state.tasks}
+          allActions={{
+            handleChecked: "sa",
+            handleDelete: "s",
+            handleUpdate: "sa",
+          }}
+        />
       </div>
     );
   }
