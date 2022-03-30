@@ -4,86 +4,63 @@ import AddTasksForm from "./components/AddTaskForm";
 import TaskList from "./components/TaskList";
 class App extends React.Component {
   state = {
-    title: "",
-    description: "",
-    time: "",
-    priority: "",
+    id:1,
     tasks: [
       {
+        id:555,
         title: "Playing Time",
         description: "i go to play my favorites game this time go a head to play",
-        date: "12/2",
+        time: "12/2s33",
         checked: true,
         priority: "important",
-      },
-      {
-        title: "Playing Time",
-        description: "i go to play my favorites game this time go a head to play",
-        date: "12/2",
-        checked: true,
-        priority: "important",
-      },
-      {
-        title: "Playing Time",
-        description: "i go to play my favorites game this time go a head to play",
-        date: "12/2",
-        checked: true,
-        priority: "important",
-      },
-      {
-        title: "Playing Time",
-        description: "i go to play my favorites game this time go a head to play",
-        date: "12/2",
-        checked: true,
-        priority: "important",
-      },
-      {
-        title: "Playing Time",
-        description: "i go to play my favorites game this time go a head to play",
-        date: "12/2",
-        checked: true,
-        priority: "important",
-      },
+      }
     ],
   };
 
-  handleInputChange = ({ target: { value, name } }) => {
-    this.setState({ [name]: value });
-  };
 
   addTaskToArray = (e) => {
     e.preventDefault();
-    const { title, description, time, priority } = this.state;
-    const newTask = { title, description, time, priority };
+    const {elements} = e.target;
+    const title = elements[0].value
+    const description = elements[1].value
+    const time = elements[2].value
+    const priority = elements[3].value
+    const {id } = this.state;
+    const checked = false;
+    const newTask = {id, title, description,checked, time, priority };
     this.setState((prevState) => {
       return {
-        tasks: [...prevState.tasks, newTask],
-        title: "",
-        description: "",
-        time: "",
-        priority: "",
+        id: prevState.id + 1,
+        tasks: [...prevState.tasks, newTask]
       };
     });
   };
+  handleDelete = ({target:{id}})=>{
+    
+    this.setState((prevState) => {
+      const filterd =  prevState.tasks.filter((ele) => ele.id != id)
+      console.log(filterd);
+      return {
+        tasks: filterd
+      }
+    });
+  }
+  handleChecked = ({target:{id}})=>{
+    console.log(id);
+  }
   render() {
-    const { title, description, time } = this.state;
+    // const { title, description, time } = this.state;
     return (
       <div className="App">
         <form onSubmit={this.addTaskToArray}>
-          <AddTasksForm
-            handleInputChange={this.handleInputChange}
-            pushTask={this.addTaskToArray}
-            title={title}
-            description={description}
-            time={time}
-          />
+          <AddTasksForm />
         </form>
         <TaskList
           data={this.state.tasks}
           allActions={{
-            handleChecked: "sa",
-            handleDelete: "s",
-            handleUpdate: "sa",
+            handleChecked: this.handleChecked,
+            handleDelete: this.handleDelete,
+            handleUpdate: this.handleDelete,
           }}
         />
       </div>
