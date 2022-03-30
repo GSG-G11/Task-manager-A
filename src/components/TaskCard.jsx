@@ -16,7 +16,7 @@ function TaskCard({ task, handlers }) {
         </div>
         <p className="card-description"> {description} </p>
         <div className="info">
-          {priority === "i" ? (
+          {priority === "important" ? (
             <span className="important"> IMPORTANT </span>
           ) : (
             <span className="not-important">Not IMPORTANT</span>
