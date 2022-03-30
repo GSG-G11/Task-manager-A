@@ -8,7 +8,7 @@ import {
 
 function TaskCard({ task, handlers }) {
   const { handleChecked, handleDelete, handleUpdate } = handlers;
-  const { title, description, date, checked, priority } = task;
+  const {id, title, description, time, checked, priority } = task;
   return (
     <div className="card">
       <div className="card-container">
@@ -27,16 +27,16 @@ function TaskCard({ task, handlers }) {
           ) : (
             <span className="not-important">Not IMPORTANT</span>
           )}
-          <p className="date">created at {date}</p>
+          <p className="date">created at {time}</p>
         </div>
         <div className="actions">
-          <button className="check" onClick={handleChecked}>
+          <button id={id} className="check" onClick={handleChecked}>
             <FontAwesomeIcon icon={faCircleCheck} />
           </button>
           <button className="update" onClick={handleUpdate}>
             <FontAwesomeIcon icon={faPenToSquare} />
           </button>
-          <button className="delete" onClick={handleDelete}>
+          <button id={id} className="delete" onClick={handleDelete}>
             <FontAwesomeIcon icon={faTrashCan} />
           </button>
         </div>

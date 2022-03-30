@@ -4,7 +4,7 @@ function TaskList({ data, allActions }) {
   return (
     <div className="container">
       {data.map((el) => (
-        <TaskCard task={el} handlers={allActions} />
+        <TaskCard key={el.id} task={el} handlers={allActions} />
       ))}
     </div>
   );
