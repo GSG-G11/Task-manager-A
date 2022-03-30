@@ -1,9 +1,9 @@
 import React from 'react';
 
-const AddTasksForm = ({ title, description, time, onSubmit }) => {
+const EditTask = ({ title, description, time, onSubmit ,id}) => {
   return (
     <>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} id={id} >
         <label>Title : </label>
         <input value={title} name="title" type="text" />
         <label>Description : </label>
@@ -15,10 +15,10 @@ const AddTasksForm = ({ title, description, time, onSubmit }) => {
           <option value="important">Important</option>
           <option value="not-important">not-important</option>
         </select>
-        <button type="submit">Add Task</button>
+        <button type="submit">Edit</button>
       </form>
     </>
   );
 };
 
-export default AddTasksForm;
+export default EditTask;
