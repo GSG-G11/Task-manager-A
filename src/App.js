@@ -37,7 +37,7 @@ class App extends React.Component {
   };
   handleDelete = ({ target: { id } }) => {
     this.setState((prevState) => {
-      const filterd = prevState.tasks.filter((ele) => ele.id != id);
+      const filterd = prevState.tasks.filter((ele) => ele.id !== +id);
       console.log(filterd);
       return {
         tasks: filterd,
@@ -69,14 +69,19 @@ class App extends React.Component {
   };
 
   handleChecked = ({ target: { id } }) => {
-    console.log(id);
+    this.setState((prevState) => {
+      prevState.tasks[+id].checked = true;
+      return prevState;
+    });
   };
   render() {
     console.log(this.state);
     return (
-      <div className="App">
-        <AddTasksForm onSubmit={this.addTaskToArray} />
-
+      <div className='App'>
+        <div className='form-container'>
+          <AddTasksForm onSubmit={this.addTaskToArray} />
+          <div className='time-card'></div>
+        </div>
         <TaskList
           data={this.state.tasks}
           allActions={{
