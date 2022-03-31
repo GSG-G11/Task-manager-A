@@ -3,6 +3,7 @@ import React from 'react';
 const AddTasksForm = ({ title, description, time, onSubmit }) => {
   return (
     <>
+    <h1 className='form-comp'>Add Thing To Do</h1>
       <form onSubmit={onSubmit}>
         <label>Title : </label>
         <input value={title} name="title" type="text" />
