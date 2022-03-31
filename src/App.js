@@ -13,7 +13,7 @@ class App extends React.Component {
         title: 'Playing Time',
         description:
           'i go to play my favorites game this time go a head to play',
-        time: '12/2s33',
+        time: '2022-03-02T23:15',
         checked: true,
         priority: 'important',
       },
@@ -27,6 +27,7 @@ class App extends React.Component {
     const title = elements[0].value;
     const description = elements[1].value;
     const time = elements[2].value;
+    console.log(time)
     const priority = elements[3].value;
     const { id } = this.state;
     const checked = false;
